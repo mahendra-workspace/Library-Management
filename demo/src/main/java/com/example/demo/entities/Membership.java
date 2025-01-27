@@ -1,6 +1,7 @@
-package entities;
+package com.example.demo.entities;
 
-import jakarta.persistence.Column;
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,23 +10,42 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="memberships")
-public class Memberships {
+public class Membership {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private String membershipId;
 	
-
 	private String planName;
 	
-
 	private String maxBooks;
 	
-
-	private String borrowDuration;
-	
+	private int borrowDuration;
 
 	private String penaltyPerDay;
+	
+    private LocalDate startDate;
+    
+	private LocalDate endDate;
+    
+    
+
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
+	}
+
 
 	public String getMembershipId() {
 		return membershipId;
@@ -51,11 +71,11 @@ public class Memberships {
 		this.maxBooks = maxBooks;
 	}
 
-	public String getBorrowDuration() {
+	public int getBorrowDuration() {
 		return borrowDuration;
 	}
 
-	public void setBorrowDuration(String borrowDuration) {
+	public void setBorrowDuration(int borrowDuration) {
 		this.borrowDuration = borrowDuration;
 	}
 
@@ -68,5 +88,5 @@ public class Memberships {
 	}
 	
 	
-	
 }
+

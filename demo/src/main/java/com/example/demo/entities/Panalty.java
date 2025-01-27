@@ -1,16 +1,17 @@
-package entities;
+package com.example.demo.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="Panalties")
-public class Panalties {
+public class Panalty {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
@@ -23,6 +24,10 @@ public class Panalties {
 	private Double penaltyAmount;
 	
 	private boolean paid;
+	
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "userId", nullable = false)
+    private Users user;
 
 	public String getPenaltyId() {
 		return penaltyId;

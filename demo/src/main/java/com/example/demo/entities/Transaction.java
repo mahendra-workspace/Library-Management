@@ -1,4 +1,4 @@
-package entities;
+package com.example.demo.entities;
 
 import java.time.LocalDate;
 
@@ -82,3 +82,4 @@ public class Transaction {
     
     
 }
+

@@ -1,4 +1,4 @@
-package entities;
+package com.example.demo.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -62,8 +62,6 @@ public class Book {
 	public void setAvailableCopies(int availableCopies) {
 		this.availableCopies = availableCopies;
 	}
-
-
 	
 	
 }

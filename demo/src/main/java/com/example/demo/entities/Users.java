@@ -1,10 +1,11 @@
-package entities;
+package com.example.demo.entities;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,6 +31,21 @@ public class Users {
 
 	private String email;
 	
+
+	private String role;
+	
+    @ManyToOne
+    @JoinColumn(name = "membership_id", referencedColumnName = "membershipId")
+    private Membership membership;
+	
+    
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 	private String address;
 
@@ -88,6 +104,15 @@ public class Users {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public Membership getMembership() {
+		return membership;
+	}
+
+	public void setMembership(Membership membership) {
+		this.membership = membership;
+	}
 	
 	
 }
+
